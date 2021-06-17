@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View" />
+        <variable name="viewmodel" type="com.belsoft.windowsisetstest.MainViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:fitsSystemWindows="true"
+        android:background="#8BC34A"
+        android:id="@+id/coordinatorLayoutContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayoutContainer"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            tools:context=".MainActivity"
+            >
+            <Button
+                android:background="@android:color/holo_orange_dark"
+                android:id="@+id/topButton"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/hello_button_top"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                style="@style/Widget.AppCompat.Button"
+                />
+            <Button
+                android:background="@android:color/holo_orange_dark"
+                android:id="@+id/bottomButton"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/hello_button_bottom"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                style="@style/Widget.AppCompat.Button"
+                />
+            <EditText
+                android:ems="10"
+                android:id="@+id/editTextTextPersonName"
+                android:inputType="textPersonName"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_width="wrap_content"
+                android:text="Name"
+                app:layout_constraintBottom_toTopOf="@+id/bottomButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2"
+                />
+            <TextView
+                android:background="#3F51B5"
+                android:id="@+id/textView2"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Hello World!"
+                android:textColor="#FFFFFF"
+                android:textSize="48sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
+                app:layout_constraintTop_toBottomOf="@+id/topButton"
+                app:layout_constraintVertical_chainStyle="packed"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

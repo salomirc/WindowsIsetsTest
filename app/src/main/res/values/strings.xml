@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">WindowsIsetsTest</string>
+    <string name="hello_button_top">Hello TOP</string>
+    <string name="hello_button_bottom">Hello BOTTOM</string>
+</resources>
