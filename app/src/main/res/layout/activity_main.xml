@@ -8,11 +8,12 @@
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:fitsSystemWindows="true"
         android:background="#8BC34A"
+        android:fitsSystemWindows="true"
         android:id="@+id/coordinatorLayoutContainer"
+        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayoutContainer"
@@ -21,57 +22,44 @@
             tools:context=".MainActivity"
             >
             <Button
-                android:background="@android:color/holo_orange_dark"
+                android:background="#FF9800"
                 android:id="@+id/topButton"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="@string/hello_button_top"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
+                android:padding="6dp"
+                android:text="@string/toggle_keyboard"
+                app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
+                app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
                 app:layout_constraintTop_toTopOf="parent"
-                style="@style/Widget.AppCompat.Button"
+                app:layout_constraintVertical_chainStyle="spread_inside"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 />
             <Button
-                android:background="@android:color/holo_orange_dark"
+                android:background="#FF9800"
                 android:id="@+id/bottomButton"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="@string/hello_button_bottom"
+                android:padding="6dp"
+                android:text="@string/check_keyboard_visbility"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                style="@style/Widget.AppCompat.Button"
+                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 />
             <EditText
                 android:ems="10"
                 android:id="@+id/editTextTextPersonName"
                 android:inputType="textPersonName"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
                 android:layout_width="wrap_content"
                 android:text="Name"
                 app:layout_constraintBottom_toTopOf="@+id/bottomButton"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2"
-                />
-            <TextView
-                android:background="#3F51B5"
-                android:id="@+id/textView2"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="Hello World!"
-                android:textColor="#FFFFFF"
-                android:textSize="48sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
-                app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/bottomButton"
+                app:layout_constraintStart_toStartOf="@+id/bottomButton"
                 app:layout_constraintTop_toBottomOf="@+id/topButton"
-                app:layout_constraintVertical_chainStyle="packed"
                 />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

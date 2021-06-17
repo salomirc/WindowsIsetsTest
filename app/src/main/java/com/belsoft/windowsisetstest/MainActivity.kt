@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsAnimationCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
 import com.belsoft.windowsisetstest.databinding.ActivityMainBinding
 
@@ -18,20 +20,14 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.lifecycleOwner = this
         binding.viewmodel = viewModel
+
+        //need it by setOnApplyWindowInsetsListener
 //        WindowCompat.setDecorFitsSystemWindows(window, false)
 
         initializeUI()
     }
 
     private fun initializeUI() {
-
-        viewModel.keyboardToggle.observe(this) {
-            if (it) binding.root.showKeyboard() else binding.root.hideKeyboard()
-        }
-
-        binding.coordinatorLayoutContainer.setKeyboardVisibilityListener { isVisible, height ->
-            logKeyboardInfo(isVisible, height)
-        }
 
         binding.topButton.setOnClickListener {
             viewModel.toggleKeyboard()
@@ -42,6 +38,31 @@ class MainActivity : AppCompatActivity() {
                 logKeyboardInfo(visible, imeHeight)
             }
         }
+
+        viewModel.keyboardToggle.observe(this) {
+            if (it) binding.root.showKeyboard() else binding.root.hideKeyboard()
+        }
+
+        binding.root.setKeyboardVisibilityListener { isVisible, height ->
+            logKeyboardInfo(isVisible, height)
+        }
+
+        binding.coordinatorLayoutContainer.setWindowInsetsAnimationCallBack(
+            onPrepare = {
+                Log.d(TAG, "InsetAnimation onPrepare()")
+            },
+            onStart = {
+                Log.d(TAG, "InsetAnimation onStart()")
+            },
+            onProgress = { insets: WindowInsetsCompat,
+                           runningAnimations: MutableList<WindowInsetsAnimationCompat> ->
+                Log.d(TAG, "InsetAnimation onProgress()")
+                return@setWindowInsetsAnimationCallBack  insets
+            },
+            onEnd = {
+                Log.d(TAG, "InsetAnimation onEnd()")
+            }
+        )
     }
 
     private fun logKeyboardInfo(isVisible: Boolean?, height: Int?) {

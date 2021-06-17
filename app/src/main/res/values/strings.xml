@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">WindowsIsetsTest</string>
-    <string name="hello_button_top">Hello TOP</string>
-    <string name="hello_button_bottom">Hello BOTTOM</string>
+    <string name="toggle_keyboard">Toggle the keyboard</string>
+    <string name="check_keyboard_visbility">Check keyboard visibility</string>
 </resources>
